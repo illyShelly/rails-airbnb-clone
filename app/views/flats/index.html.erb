@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>All my flats</h1>
+  <div class="cards padded">
+        <!-- <h2 class="card-title text-center">Our beloved drinks</h2> -->
+    <div class="row">
+      <% @flats.each do |flat| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <% if flat.photo? %>
+            <!-- displayed cards -->
+            <!-- USING FIT PICTURE -> IS NOT ZOOMED IN SO MUCH like fill -->
+
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.book-a-flat.com/images/paris-salon-3.jpg');">
+            <!-- url('< cl_image_path (cocktail.photo), height: 500, width: 600, crop: :fit %>');"> -->
+
+            <!-- url('https://source.unsplash.com/500x400/?cocktail');"> -->
+            <!-- https://images.unsplash.com/photo-1543479679-2ad5736490b6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=500&h=400&fit=crop&ixid=eyJhcHBfaWQiOjF9 -->
+          <% else %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+            url('<%= image_path("logo.png") %>');">
+          <% end %>
+            <div class="card-category"><%= flat.name %></div>
+            <div class="card-description">
+
+            </div>
+            <!-- <a class="card-link" href="#" ></a> -->
+            <%= link_to "", flat_path(flat), class: 'card-link' %>
+          </div> <!-- end of card -->
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <!-- end of row -->
+  </div>
+</div>

@@ -1,0 +1,70 @@
+/* Card design */
+.cards {
+  margin: 40px 0;
+}
+.card-title {
+  opacity: 0.8;
+  color: black;
+  padding-bottom: 20px;
+}
+.card {
+  background-size: cover !important;
+  background-position: center;
+  height: 250px;
+  border-radius: 4px;
+  color: white;
+  position: relative;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
+  /*on mobile -> needs space above each*/
+  margin-bottom: 50px;
+  transition: .5s; /* smoothly move back when hover from the card */
+  box-shadow: 2px 3px 5px rgb(68, 49, 49);
+}
+
+.card:hover {
+  opacity: 1.0;
+  transform: scale(1.05, 1.05);
+  transition: .5s; /* smoothly moved when hover on the card */
+}
+
+/*inner information*/
+.card-category {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  font-size: 20px;
+}
+
+.card-description {
+  position: absolute;
+  top: 80px;
+  right: 25px;
+  opacity: 0.8;
+}
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.card-description h2 {
+  font-size: 22px;
+}
+
+.card-description p {
+  opacity: 0.9;
+  font-size: 15px;
+  letter-spacing: 1.2px;
+}
+
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover {
+  opacity: 0.1;
+}

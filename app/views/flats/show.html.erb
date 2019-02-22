@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Detailed flat</h1>
+  <%= @flat.name %>
+  <%= @flat.description %>
+  <%= @flat.price %>
+  <%= @flat.address %>
+  <%= @flat.location %>
+  <hr>
+  <%= @flat.user.email %>
+  <%= image_path @flat.photo  %>
+  <div class="cards padded">
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+              url('<%= image_path @flat.photo %>');">
+  </div>
+  <%= link_to 'To flats', flats_path %>
+</div>
