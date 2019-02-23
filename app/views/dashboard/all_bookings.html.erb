@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>All my bookings</h1>
+  <ul>
+
+    <% @bookings.each do |booking| %>
+      <li>Booked by: <%= booking.user.email %></li>
+      <li>Status: <%= booking.status %></li>
+      <li>Booked at: <%= booking.created_at %></li>
+      <li>Flat-id: <%= booking.flat.name %></li>
+      <li>Flat-id: <%= booking.flat.location %></li>
+      <strong><li>Owner: <%= booking.flat.user.email %></li></strong>
+
+      <li>Check-in: <%= booking.checkin %></li>
+      <li>Check-out: <%= booking.checkout%></li>
+      <hr>
+    <% end %>
+  </ul>
+</div>
+
+  <!-- add_foreign_key "bookings", "flats" booking.flat -->
+  <!-- add_foreign_key "bookings", "users" => booking.user -->
+  <!-- Flat-id:#<Flat:0x00007fe15376dce8> -->
