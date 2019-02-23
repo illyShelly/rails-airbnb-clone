@@ -7,6 +7,13 @@
   <%= @flat.location %>
   <hr>
   <%= @flat.user.email %>
+  <br>
+
+  <!-- check if current user is NOT owner -->
+  <% unless current_user == @flat.user %>
+    <%= link_to 'Booking flat',  new_flat_booking_path(@flat) %>
+  <% end %>
+
   <%= image_path @flat.photo  %>
   <div class="cards padded">
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
@@ -14,3 +21,6 @@
   </div>
   <%= link_to 'To flats', flats_path %>
 </div>
+
+
+<!-- 1. in index -> show just others flats - not my own to book -->
