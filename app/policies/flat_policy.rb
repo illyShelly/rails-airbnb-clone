@@ -18,10 +18,10 @@ class FlatPolicy < ApplicationPolicy
   end
 
   # need to be also the owner -> not just signin
-  def edit?
-    # true
-    user_is_owner?
-  end
+  # def edit?
+  #   # true
+  #   user_is_owner?
+  # end
 
   def update?
     # true
