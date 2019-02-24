@@ -31,13 +31,13 @@ class FlatsController < ApplicationController
   end
 
   def edit
-    authorize @flat
+    # authorize @flat
   end
 
   def update
+    # authorize @flat
     # allowed params; redirect to concrete flat
     if @flat.update(flat_params)
-      authorize @flat
       redirect_to @flat
     else
       render :edit

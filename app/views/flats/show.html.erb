@@ -14,7 +14,7 @@
     <%= link_to 'Book flat',  new_flat_booking_path(@flat), class: "btn btn-primary" %>
     <%= link_to 'Back to flats', flats_path, class: "btn btn-danger" %>
     <% else %>
-      <% if policy(@flat).edit? %>
+      <% if policy(@flat).update? %>
         <%= link_to "Update flat", edit_flat_path(@flat) %>
       <% end %>
   <% end %>
