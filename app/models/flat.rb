@@ -2,6 +2,7 @@ class Flat < ApplicationRecord
   belongs_to :user
 
   has_many :bookings, dependent: :destroy
+  validates :name, :description, :photo, :price, :address, :location, :capacity, presence: true
 end
 
 
