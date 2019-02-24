@@ -1,20 +1,35 @@
 <div class="container">
   <h1>All my bookings</h1>
-  <ul>
 
     <% @bookings.each do |booking| %>
-      <li>Booked by: <%= booking.user.email %></li>
-      <li>Status: <%= booking.status %></li>
-      <li>Booked at: <%= booking.created_at %></li>
-      <li>Flat-id: <%= booking.flat.name %></li>
-      <li>Flat-id: <%= booking.flat.location %></li>
-      <strong><li>Owner: <%= booking.flat.user.email %></li></strong>
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <ul>
+              <li>Booked by: <%= booking.user.email %></li>
+              <li>Status: <%= booking.status %></li>
+              <li>Booked at: <%= booking.created_at %></li>
+              <li>Flat-id: <%= booking.flat.name %></li>
+              <li>Flat-id: <%= booking.flat.location %></li>
+              <strong><li>Owner: <%= booking.flat.user.email %></li></strong>
+              <li>Check-in: <%= booking.checkin %></li>
+              <li>Check-out: <%= booking.checkout%></li>
+           </ul>
+          </div>
 
-      <li>Check-in: <%= booking.checkin %></li>
-      <li>Check-out: <%= booking.checkout%></li>
+      <div class="cards padded">
+          <div class="col-xs-12 col-md-6">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+              url('<%= booking.flat.photo %>')">
+              <%= link_to "", flat_path(booking.flat), class: 'card-link' %>
+            </div>
+            <%#= link_to flat_booking_path(booking.flat, booking) do ....%>
+          </div>
+        </div>
+
+      </div>
       <hr>
     <% end %>
-  </ul>
+
 </div>
 
   <!-- add_foreign_key "bookings", "flats" booking.flat -->

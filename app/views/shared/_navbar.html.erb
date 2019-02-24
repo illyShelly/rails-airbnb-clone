@@ -22,6 +22,7 @@
             <li>
               <%= link_to "#" do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <%= current_user.email %>
               <% end %>
             </li>
             <li>
