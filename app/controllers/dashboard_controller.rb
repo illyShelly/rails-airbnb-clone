@@ -11,4 +11,4 @@ end
 
 # 1. show all my flats - created
 # 2. show all my bookings - others owners
-# User.order('id ASC').reorder('name DESC')
+# e.x. User.order('id ASC').reorder('name DESC')

@@ -17,7 +17,10 @@
                 <div class="card-category"><%= flat.name %></div>
                 <div class="card-description"></div>
                 <!-- <a class="card-link" href="#" ></a> -->
-                <%= link_to "", flat_path(flat), class: 'card-link' %>
+                <% if policy(flat).show? %>
+                  <%#= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%= link_to '', flat_path(flat), class: 'card-link' %>
+                <% end %>
               </div>
               <!-- url('https://www.book-a-flat.com/images/paris-salon-3.jpg');"> -->
               <!-- url('< cl_image_path (cocktail.photo), height: 500, width: 600, crop: :fit %>');"> -->
