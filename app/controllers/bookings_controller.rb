@@ -1,6 +1,13 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show]
 
+  # def index
+  #   # will change by pundit
+  #   # for working with all bookings and all flats to iterate through
+  #   @bookings = policy_scope(Booking).order(created_at: :desc)
+  #   @flats = Flat.all
+  # end
+
   def new
     # book particular flat by booking's flat_id
     @flat = Flat.find(params[:flat_id])

@@ -1,6 +1,10 @@
 <div class="container">
 
   <h1>All my flats</h1>
+
+  <%= @bookings_of_flat %>
+
+
   <p>You own <%= @flats.count %></p>
     <% @flats.each do |flat| %>
   <hr>
@@ -9,7 +13,9 @@
           <ul>
               <li>User signin: <%= current_user.email %>
               <li>My flat: <%= flat.user.email %></li>
+              <li>My id: <%= flat.user.id %></li>
               <li><%= flat.name %></li>
+              <li>Flat id: <%= flat.id %></li>
               <li><%= flat.description %></li>
               <li><%= flat.address %></li>
               <li><%= flat.location %></li>
@@ -26,7 +32,6 @@
             </div>
           </div>
         </div>
-
       </div>
     <% end %>
 </div>

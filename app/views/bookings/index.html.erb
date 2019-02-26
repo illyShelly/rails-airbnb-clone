@@ -1,0 +1,39 @@
+<div class="container">
+
+
+<h1>play with bookings</h1>
+
+
+  <% @flats.each do |flat| %>
+
+  <% @bookings.each do |booking| %>
+<div class="row">
+  <div class="col-xs-12 col-md-6">
+    <% if booking.flat_id == flat.id %>
+      <li><%= booking.created_at %></li>
+      <li><%= booking.status %></li>
+      <li>Booking_Flat_id<%= booking.flat_id %></li>
+      <li>Flat_id<%= flat.id %></li>
+      <li>Flat_name<%= flat.name %></li>
+      <li>User of flat<%= flat.user.id %></li>
+  </div>
+
+    <div class="cards padded">
+      <div class="col-xs-12 col-md-6">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url('<%= booking.flat.photo %>')">
+          <%= link_to "", flat_path(booking.flat), class: 'card-link' %>
+        </div>
+        <%#= link_to flat_booking_path(booking.flat, booking) do ....%>
+      </div>
+    </div>
+
+      <% end %>
+</div>
+
+  <% end %>
+
+ <% end %>
+      <hr>
+
+</div>

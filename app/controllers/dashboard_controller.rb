@@ -1,12 +1,32 @@
 class DashboardController < ApplicationController
+
   def all_bookings
-    @bookings = current_user.bookings
+    @my_bookings = current_user.bookings
     authorize :dashboard, :all_bookings?
   end
 
   def all_flats
     @flats = current_user.flats
     authorize :dashboard, :all_flats?
+
+    @bookings = policy_scope(Booking).all
+
+    @bookings_of_flat = []
+
+    @flats.each do |flat|
+
+      @bookings.each do |booking|
+
+        if booking.flat_id == flat.id
+          # display every booking - from new to old
+          @bookings_of_flat << booking
+        end
+      end
+
+    end
+
+    # end
+    return @bookings_of_flat
   end
 end
 
