@@ -7,7 +7,7 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.2'
 gem 'redis'
-gem "pundit"
+gem 'pundit'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
@@ -18,6 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 # added gem devise
 gem 'devise'
+gem 'cloudinary', '~> 1.9.1'
 
 
 group :development do
