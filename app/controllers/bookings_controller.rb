@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
     # book particular flat by booking's flat_id
     @flat = Flat.find(params[:flat_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -14,6 +15,8 @@ class BookingsController < ApplicationController
     # logged_in user assign
     @booking.user = current_user
     @booking.flat = @flat
+    # authorization of booking
+    authorize @booking
 
     if @booking.save
       # redirect_to to-all-bookings/dashboard
