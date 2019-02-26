@@ -23,8 +23,7 @@
 
   <%= image_path @flat.photo  %>
   <div class="cards padded">
-    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-              url('<%= image_path @flat.photo %>');">
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @flat.photo, height: 500, width: 600, crop: :fit %>')">
   </div>
 
 </div>
@@ -32,3 +31,5 @@
 
 <!-- 1. in index -> show just others flats - not my own to book -->
 <!-- 2. I am redirect when click => My property to detail flat -> where I could edit/delete/accept? -->
+<!-- for displaing image <%#= cl_image_tag @article.photo, height: 300, width: 400, crop: :fill %> -->
+<!-- url for http address from net -  url('<%= image_path @flat.photo %>');"> -->
