@@ -9,12 +9,15 @@
   margin-top: -50px;
   // padding-top: 40px;
 
-  background-size: contain, cover !important;
+  background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 32px;
+  flex-direction: column;
+
 }
+
 .banner h1 {
   letter-spacing: 10px;
   font-size: 50px;
