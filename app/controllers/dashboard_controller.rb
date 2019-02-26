@@ -9,7 +9,8 @@ class DashboardController < ApplicationController
     @flats = current_user.flats
     authorize :dashboard, :all_flats?
 
-    @bookings = policy_scope(Booking).all
+    # all bookings related to my own flats -> ordered by check-in date FIFO
+    @bookings = policy_scope(Booking).order(checkin: :asc).all
 
     @bookings_of_flat = []
 

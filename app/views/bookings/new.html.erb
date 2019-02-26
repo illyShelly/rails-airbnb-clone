@@ -1,7 +1,8 @@
 <%= simple_form_for [@flat, @booking] do |f| %>
-  <%= f.input :checkin, input_html: {class: ""} %>
+  <%= f.input :checkin, input_html: {class: ""}%>
   <%= f.input :checkout, input_html: {class: ""} %>
   <%= f.input :guests, input_html: {class: ""} %>
   <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
 
+<!-- 1. embeded booking form to show flat as partial -> change @flat -> flat -->
