@@ -2,14 +2,13 @@
   <h1>All flats</h1>
   <!-- HAVE 1 ROW => ALL CARDS INSIDE -->
   <div class="row">
-    <% @flats.each do |flat| %>
-    <!-- DISPLAY JUST OTHERS FLATS -> NOT YOUR OWN -->
-    <% unless current_user == flat.user %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-
-          <!-- displayed cards -->
-          <div class="cards padded">
-          <!-- <h2 class="card-title text-center">Our beloved drinks</h2> -->
+    <!-- displayed cards -->
+    <div class="cards padded">
+      <% @flats.each do |flat| %>
+        <!-- DISPLAY JUST OTHERS FLATS -> NOT YOUR OWN -->
+        <% unless current_user == flat.user %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <!-- <h2 class="card-title text-center">Our beloved drinks</h2> -->
             <% if flat.photo? %>
               <!-- USING FIT PICTURE -> IS NOT ZOOMED IN SO MUCH like fill -->
               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= flat.photo %>')">
@@ -32,11 +31,9 @@
                 <%= link_to "", flat_path(flat), class: 'card-link' %>
               </div> <!-- end of card -->
             <% end %>
-          </div> <!-- cards padded -->
-    <% end %> <!-- END needs to be above div for columns -->
-    </div>
-
+          </div>
+        <% end %> <!-- END needs to be above div for columns -->
+      <% end %>
+    </div> <!-- cards padded -->
   </div> <!-- row -->
-  <% end %>
-
 </div>
