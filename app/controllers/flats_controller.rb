@@ -3,7 +3,7 @@ class FlatsController < ApplicationController
 
   def index
     # will change by pundit
-    # @flats = policy_scope(Flat).order(created_at: :desc)
+    @flats = policy_scope(Flat).order(created_at: :desc)
     # @flats = Flat.all
     @flats = Flat.where.not(latitude: nil, longitude: nil)
 
