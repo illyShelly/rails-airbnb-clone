@@ -36,4 +36,15 @@
       <% end %>
     </div> <!-- cards padded -->
   </div> <!-- row -->
+  <!-- array of markers as a data attribute of our map div: -->
+  <div
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+  ></div>
+
 </div>
+
+  <!-- data-markers="<%#= @markers.to_json %>" -->
+
