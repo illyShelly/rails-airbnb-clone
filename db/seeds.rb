@@ -40,6 +40,7 @@ puts ""
 
  flat9 = Flat.create!(name: "Flat of your dreams", description: "Beautiful flat in Madrid", photo: "https://images.unsplash.com/photo-1517659649778-bae24b8c2e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60", price: 3500, address: "Calle de San Bernardo, 4, 3º, 28013 Madrid, Spain", location: "Madrid", capacity: 2, user_id: User.all.sample.id)
 
+
 puts "#{User.count} created users"
 puts "*" * 20
 puts "#{Flat.count} created flats"
