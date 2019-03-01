@@ -1,0 +1,10 @@
+  <p><strong><%= flat.name %></p></strong>
+  <%#= image_path flat.photo, height: 50, width: 50, crop: :fit  %>
+  <%#= cl_image_path (flat.photo), height: 50, width: 50, crop: :fit %>
+  <div class="" style="background-image: url('<%= flat.photo %>'), background-size: cover !important;, height: 100, width: 100">
+    <% if policy(flat).show? %>
+      <%= link_to '', flat_path(flat), class: 'card-link' %>
+    <% end %>
+
+  </div>
+  <%#=link_to "Find more about this flat", flat_path(flat)%>
