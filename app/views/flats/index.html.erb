@@ -7,7 +7,14 @@
   ></div>
 
 <div class="container">
-  <h1>All flats</h1>
+  <!-- if searching flats not in DB, NOT use nil -->
+  <%  if params[:query].present? && @flats.count == 0 %>
+    <div class="text-center">
+      <h2>No flats for this search ...</h2>
+      <br>
+      <h2><%= link_to "All Flats", flats_path %></h2>
+    </div>
+  <% else %>
   <!-- HAVE 1 ROW => ALL CARDS INSIDE -->
   <div class="row">
     <!-- displayed cards -->
@@ -29,7 +36,7 @@
                 <% end %>
               </div>
               <!-- url('https://www.book-a-flat.com/images/paris-salon-3.jpg');"> -->
-              <!-- url('< cl_image_path (cocktail.photo), height: 500, width: 600, crop: :fit %>');"> -->
+              <!-- url('< cl_image_path (flat.photo), height: 500, width: 600, crop: :fit %>');"> -->
               <!-- url('https://source.unsplash.com/500x400/?cocktail');"> -->
             <% else %>
               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path("logo.png") %>');">
@@ -44,8 +51,7 @@
       <% end %>
     </div> <!-- cards padded -->
   </div> <!-- row -->
-
-
+  <% end %>
 </div>
 
   <!-- data-markers="<%#= @markers.to_json %>" -->
