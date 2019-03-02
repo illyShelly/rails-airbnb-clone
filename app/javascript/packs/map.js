@@ -91,11 +91,11 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
 
   map.addMarkers(markers);
   if (markers.length === 0) {
-    map.setZoom(2);
+    map.setZoom(4);
   }
   else if (markers.length === 1) {
     map.setCenter(markers[0].lat, markers[0].lng);
-    map.setZoom(16);
+    map.setZoom(14);
   }
   else {
     map.fitLatLngBounds(markers);

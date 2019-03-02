@@ -72,11 +72,21 @@
 // infoWindow
 .infowindow-card {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+.infowindow-title {
+  letter-spacing: 3px;
+  padding-bottom: 5px;
+}
+.infowindow-img {
+  // padding: 5px;
+  width: 180px;
+  height: 150px;
+  background-size: cover !important;
 }
 
-.infowindow-img {
-  position: relative;
-}
 
 .infowindow-link {
   position: absolute;
@@ -87,3 +97,18 @@
   background: black;
   opacity: 0;
 }
+// .infowindow-link {
+//   padding: 7px 0;
+//   width: 100%;
+//   text-align: center;
+//   background: black;
+//   opacity: 0.9;
+//   letter-spacing: 2px;
+//   color: white;
+//   box-shadow: 1px 2px 3px rgba(0,0,0,0.5);
+// }
+// a.infowindow-link:hover {
+//   text-decoration: none;
+//   color: white;
+//   letter-spacing: 2.3px;
+// }
