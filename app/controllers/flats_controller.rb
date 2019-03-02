@@ -10,7 +10,9 @@ class FlatsController < ApplicationController
       # authorize all
       @flats = policy_scope(Flat).order(created_at: :desc)
       # search sql condition
-      @flats = Flat.where("location ILIKE ?", "%#{params[:query]}%")
+      sql_query = "location ILIKE :query OR title ILIKE :query"
+      @flats = Flat.where(sql_query, query: "%#{params[:query]}%")
+
       # showing map with markers
       @markers = @flats.map do |flat|
         {
