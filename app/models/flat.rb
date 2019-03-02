@@ -9,6 +9,7 @@ class Flat < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   validates :name, :description, :photo, :price, :address, :location, :capacity, presence: true
+  validates :capacity, inclusion: { in: 1..8 }
   # validates :name, :description, :price, :address, :location, :capacity, presence: true
 end
 
