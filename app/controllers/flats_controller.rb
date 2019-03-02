@@ -6,12 +6,11 @@ class FlatsController < ApplicationController
     # @flats = Flat.all
     # @flats = policy_scope(Flat).order(created_at: :desc)
 
-    if params[:query].present? && @flats != nil
+    if params[:query].present?
       # authorize all
       @flats = policy_scope(Flat).order(created_at: :desc)
       # search sql condition
-      @flats = Flat.where(location: params[:query])
-
+      @flats = Flat.where("location ILIKE ?", "%#{params[:query]}%")
       # showing map with markers
       @markers = @flats.map do |flat|
         {
