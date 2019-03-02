@@ -4,14 +4,20 @@
       <p>Awesome flats for developers to discover new places worldwide</p>
       <br>
       <%= link_to "All flats", flats_path, class: "btn btn-default"%>
-
-      <% if policy(Flat).create? %>
-      <%= link_to "Add flat", new_flat_path, class: "btn btn-default"%>
-      <% end %>
-    </div>
+      <%# if policy(Flat).create? %>
+      <%#= link_to "Add flat", new_flat_path, class: "btn btn-default"%>
+      <%# end %>
+      <br>
+      <div id="style-input-group">
+        <%= form_tag flats_path, class: "form-inline", method: :get do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Your next home..." %>
+        <% end %>
+      </div>
 </div>
 
 
 
 <!-- later -->
 <%#= render 'shared/banner' %>
+<!-- 1. move adding flat to profile dropdown menu -->
+<!-- 2. put search input -->

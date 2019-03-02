@@ -4,19 +4,39 @@ class FlatsController < ApplicationController
   def index
     # will change by pundit
     # @flats = Flat.all
-    @flats = policy_scope(Flat).order(created_at: :desc)
+    # @flats = policy_scope(Flat).order(created_at: :desc)
 
-    # displaying just flats which are not mine
-    @flats = Flat.where.not(latitude: nil, longitude: nil, user: current_user)
+    if params[:query].present? && @flats != nil
+      # authorize all
+      @flats = policy_scope(Flat).order(created_at: :desc)
+      # search sql condition
+      @flats = Flat.where(location: params[:query])
 
-    @markers = @flats.map do |flat|
-      {
-        lat: flat.latitude,
-        lng: flat.longitude,
-        infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-        # Uncomment the above line if you want each of your markers to display a info window when clicked
-        # (you will also need to create the partial "/flats/map_box")
-      }
+      # showing map with markers
+      @markers = @flats.map do |flat|
+        {
+          lat: flat.latitude,
+          lng: flat.longitude,
+          infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+          # Uncomment the above line if you want each of your markers to display a info window when clicked
+          # (you will also need to create the partial "/flats/map_box")
+        }
+      end
+    else
+      @flats = policy_scope(Flat).order(created_at: :desc)
+
+      # displaying just flats which are not mine
+      @flats = Flat.where.not(latitude: nil, longitude: nil, user: current_user)
+
+      @markers = @flats.map do |flat|
+        {
+          lat: flat.latitude,
+          lng: flat.longitude,
+          infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+          # Uncomment the above line if you want each of your markers to display a info window when clicked
+          # (you will also need to create the partial "/flats/map_box")
+        }
+      end
     end
   end
 
