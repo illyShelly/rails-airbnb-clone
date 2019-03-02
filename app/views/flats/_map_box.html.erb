@@ -1,6 +1,6 @@
 <div class="infowindow-card">
   <p><strong><%= flat.name %></p></strong>
-  <%= cl_image_tag flat.photo, height: 150, width: 170, crop: :fill %>
+  <%= cl_image_tag flat.photo, class: 'infowindow-img', height: 150, width: 170, crop: :fill %>
   <% if policy(flat).show? %>
     <%= link_to '', flat_path(flat), class: 'infowindow-link' %>
   <% end %>
