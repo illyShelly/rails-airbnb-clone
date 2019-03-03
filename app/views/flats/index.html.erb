@@ -3,17 +3,17 @@
     id="map"
     style="width: 100%;
     height: 400px;"
-    data-markers="<%= @markers.to_json %>"
-  ></div>
+    data-markers="<%= @markers.to_json %>">
+  </div>
 
 <div class="container">
-  <!-- if searching flats not in DB, NOT use nil -->
-  <%  if params[:query].present? && @flats.count == 0 %>
-    <div class="text-center">
-      <h2>No flats for this search ...</h2>
-      <br>
-      <h2><%= link_to "All Flats", flats_path %></h2>
-    </div>
+  <!-- if searching flats not in DB, NOT use nil OR my flats not showing in map nor cards -->
+  <%  if params[:query].present? && @flats.count == 0 || params[:query].present? && @markers.count == 0 %>
+      <div class="text-center">
+        <h2>No flats for this search ...</h2>
+        <br>
+        <h2><%= link_to "All Flats", flats_path %></h2>
+      </div>
   <% else %>
   <!-- CAN SHOW MY FLAT AFTER SEARCH IN THE MAP, not as card -->
 

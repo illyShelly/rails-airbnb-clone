@@ -11,9 +11,10 @@ class FlatsController < ApplicationController
       @flats = policy_scope(Flat).order(created_at: :desc)
       # define model method for pg_search
       @flats = Flat.search_by_columns(params[:query])
-
       # showing map with markers
-      @markers = @flats.map do |flat|
+
+      # HANDLE IF FLAT FOUND BUT IS MINE -> not displayed on map nor the card in view
+      @markers = @flats.where.not(user: current_user).map do |flat|
         {
           lat: flat.latitude,
           lng: flat.longitude,
