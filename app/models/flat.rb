@@ -26,5 +26,5 @@ end
 # 3. added carrierwave gem for photo - app/uploaders/photo_uploader.rb, form update for flat
 # 4. added line for using map with lat, lng for address
 # 5. include PgSearch gem -> define what to search -> all columns rails c: Flat.search_by_columns("central fla")
-# !!! needs to uncomment and have photo as present -> otherwise error not seed complete
+# !!! needs to uncomment  photo_uploader -> otherwise error not seed complete
 # then display photo_uploader for local not run error for html file

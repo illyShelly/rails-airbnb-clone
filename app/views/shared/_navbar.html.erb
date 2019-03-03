@@ -10,6 +10,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <%= link_to "All Flats", flats_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "My Bookings", all_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "My Property", all_flats_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%#= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
@@ -28,7 +29,7 @@
             <li>
               <% if policy(Flat).create? %>
                 <%= link_to new_flat_path do %>
-                  <i class="fa fa-cog"></i>  <%= t(".add_flat", default: "Add Flat") %>
+                  <i class="fa fa-plus"></i>  <%= t(".add_flat", default: "Add Flat") %>
                   <% end %>
               <% end %>
             </li>
