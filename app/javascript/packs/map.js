@@ -11,7 +11,7 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
            {
               featureType: 'water',
               stylers: [
-                { color: '#19a0d8' }
+                { color: '#2a4263' }
               ]
             },
             {
@@ -70,7 +70,7 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
               elementType: 'geometry',
               stylers: [
                 { visibility: 'on' },
-                { color: '#5f9071' } // darker green - parks
+                { color: '#053447' } // darker green - parks
               ]
             },
             {
@@ -95,7 +95,7 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   }
   else if (markers.length === 1) {
     map.setCenter(markers[0].lat, markers[0].lng);
-    map.setZoom(14);
+    map.setZoom(13);
   }
   else {
     map.fitLatLngBounds(markers);
