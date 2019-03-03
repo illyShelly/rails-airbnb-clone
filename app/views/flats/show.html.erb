@@ -9,24 +9,33 @@
   <%= @flat.user.email %>
   <br>
 
-  <!-- check if current user is NOT owner -->
-  <% unless current_user == @flat.user %>
-    <%= link_to 'Book flat',  new_flat_booking_path(@flat), class: "btn btn-primary" %>
-    <%= link_to 'Back to flats', flats_path, class: "btn btn-danger" %>
-    <% else %>
-      <% if policy(@flat).update? %>
-        <%= link_to "Update flat", edit_flat_path(@flat) %>
-      <% end %>
-  <% end %>
+<div class="row">
+  <div class="col-xs-12 col-md-6">
+    <%= image_path @flat.photo  %>
 
-  <%#= link_to "Delete", flat_path(@flat), class: "btn", method: :delete, data: { confirm: "Are you sure?" } %>
-
-  <%= image_path @flat.photo  %>
-  <div class="cards padded">
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @flat.photo, height: 500, width: 600, crop: :fit %>')">
+    </div>
+    <%= link_to 'Back to flats', flats_path, class: "btn btn-danger" %>
+  </div>
+
+  <div class="col-xs-12 col-md-6">
+    <!-- check if current user is NOT owner -->
+    <% unless current_user == @flat.user %>
+      <!-- added booking form -->
+      <%= render 'bookings/new' %>
+      <%#= link_to 'Book flat',  new_flat_booking_path(@flat), class: "btn btn-primary" %>
+      <% else %>
+        <% if policy(@flat).update? %>
+          <%= link_to "Update flat", edit_flat_path(@flat) %>
+        <% end %>
+    <% end %>
   </div>
 
 </div>
+
+  <%#= link_to "Delete", flat_path(@flat), class: "btn", method: :delete, data: { confirm: "Are you sure?" } %>
+
+
 
 
 <!-- 1. in index -> show just others flats - not my own to book -->

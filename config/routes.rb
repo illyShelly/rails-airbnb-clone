@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # resources :bookings, only: [:index ]
 
   resources :flats do
-    resources :bookings, only: [ :new, :create ]
+    resources :bookings, only: [ :create ]
   end
   # dashboard/bookings or dashboard/flats ..all_bookings for path in navbar "My Bookings"
   get '/dashboard/bookings', to: 'dashboard#all_bookings', as: 'all_bookings'

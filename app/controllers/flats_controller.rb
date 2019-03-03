@@ -61,6 +61,8 @@ class FlatsController < ApplicationController
 
   def show
     # authorization in set_flat
+    # added booking form as partial to flat
+    @booking = Booking.new
   end
 
   def edit
