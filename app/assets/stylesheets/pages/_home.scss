@@ -1,1 +1,33 @@
 // Specific CSS for your home-page
+@media only screen and (max-width: 550px) {
+  .banner-content {
+    padding: 0 30px;
+  }
+  .banner-content h1 {
+    font-size: 35px;
+    margin-top: 0;
+  }
+
+  .banner-content p {
+    font-size: 22px;
+  }
+
+  .form-control {
+    width: 100%;
+  }
+
+  input.form-control {
+    font-size: 17px;
+    font-weight: lighter;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .banner-content {
+    padding: 0 30px;
+  }
+
+  .banner-card-content h1 {
+    font-size: 40px;
+  }
+}
