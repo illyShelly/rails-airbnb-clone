@@ -6,7 +6,7 @@
           <div class="col-xs-12 col-md-6">
             <ul>
               <li>Booked by: <%= booking.user.email %></li>
-              <li>Status: <%= booking.status %></li>
+              <li>Status: <strong style="color: red;"><%= booking.status %></strong></li>
               <li>Booked at: <%= booking.created_at %></li>
               <li>Flat-id: <%= booking.flat.name %></li>
               <li>Flat-id: <%= booking.flat.location %></li>

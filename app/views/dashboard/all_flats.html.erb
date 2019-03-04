@@ -1,41 +1,61 @@
 <div class="container">
 
-  <h1>All my flats</h1>
+<!-- 1. all my flats -> to edit, delete - if not booked ==>> see in separate profile -->
+<!-- 1b. get detail info -> when click on it ==> flat show page... edit etc. -->
+<!-- 2. all booked flats -> change status, see who booked, when, checkin/out -->
+  <h2>All my flats: <%= @my_flats.count %></h2>
 
-  <!-- # all bookings related to my own flats -> ordered by check-in date FIFO -->
-  <%= @bookings_of_flat %>
+  <p class="text-center"> ALL bookings - including mine: <strong><%= @bookings.count %></strong> | bookings of mine: <strong><%= @bookings_of_flat.count %></strong> flats</p>
 
-
-  <p>You own <%= @flats.count %></p>
-    <% @flats.each do |flat| %>
-  <hr>
-      <div class="row">
-        <div class="col-xs-12 col-md-6">
-          <ul>
-              <li>User signin: <%= current_user.email %>
-              <li>My flat: <%= flat.user.email %></li>
-              <li>My id: <%= flat.user.id %></li>
-              <li><%= flat.name %></li>
-              <li>Flat id: <%= flat.id %></li>
-              <li><%= flat.description %></li>
-              <li><%= flat.address %></li>
-              <li><%= flat.location %></li>
-              <li><%= flat.price %>£</li>
-              <hr>
-          </ul>
-        </div>
-
-        <div class="col-xs-12 col-md-6">
-          <div class="cards padded">
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                url('<%= flat.photo %>')">
-              <%= link_to "", flat_path(flat), class: 'card-link' %>
-            </div>
+  <div class="row">
+    <% @my_flats.each do |flat| %>
+      <div class="col-xs-12 col-md-4">
+        <!-- <li>My flat email: <%#= flat.user.email %></li> -->
+        <!-- <li>My user id: <%#= flat.user.id %></li> -->
+      <!-- display all FLATS on its CARD (even not booked) -> 1 row (above loop) -->
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+            url('<%= flat.photo %>')">
+            <!-- change link for iterating through bookings_of_flat (flat_path(others.flat)-->
+            <%= link_to "", flat_path(flat), class: 'card-link' %>
           </div>
         </div>
-      </div>
     <% end %>
+  </div>
+  <!-- end of my_flats loop -->
+
+  <hr>
+
+  <!-- INFO ABOUT BOOKED FLATS (repeated booking of 1 flat, or not all flats displayed) -->
+  <!-- all booking details - flat ordered by check-in date FIFO -->
+  <h3>Management of all my booked flats</h3>
+  <hr>
+
+  <% @bookings_of_flat.each do |booked| %>
+    <div class="row">
+      <div class="col-xs-12 col-md-5 col-md-offset-1">
+         <img src="<%= booked.flat.photo%>" height=200 width=300>
+      </div>
+
+      <div class="col-xs-12 col-md-5">
+        <li>Booked by: <%= booked.user.email%></li>
+        <li>Flat id: <%= booked.flat_id %></li>
+        <li>Booking status: <strong><%= booked.status %></strong></li>
+        <li>Date: <%= booked.checkin %> : <%= booked.checkin %></li>
+        <li><strong><%= booked.flat.address %></strong></li>
+        <li><strong><%= booked.flat.location %></strong></li>
+        <li><strong><%= booked.flat.price %>£</strong></li>
+
+      </div>
+    </div>
+    <!-- every row is repeated -->
+    <hr>
+  <% end %>
+
 </div>
 
-
-<!-- row has inside of loop -> every card has its own row with 2 columns -->
+<!-- GET INFO ABOUT ALL BOOKINGS TO PARTICULAR FLAT -> can have more bookings to 1 flat -->
+<%# flat.bookings.each do |bookin| %>
+  <!-- <img src="<%#= bookin.flat.photo%>" height=100 width=100> -->
+  <%#= bookin.flat_id %>
+  <!-- <p> who booked<%#= bookin.user.email %></p> -->
+<%# end %>
