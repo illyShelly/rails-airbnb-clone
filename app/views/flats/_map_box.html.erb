@@ -1,13 +1,13 @@
 <div>
  <div class="infowindow-card">
   <div class="infowindow-title"><%= flat.name %></div>
-  <div class="infowindow-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path flat.photo, height: 150, width: 150, crop: :fill  %>')">
     <%#= cl_image_tag flat.photo, height: 130, width: 130, crop: :fill %>
     <% if policy(flat).show? %>
       <%= link_to '', flat_path(flat), class: 'infowindow-link' %>
+        <div class="infowindow-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path flat.photo, height: 150, width: 150, crop: :fill  %>')">
+        </div>
     <% end %>
   </div>
-</div>
   <%#=link_to "Find more about this flat", flat_path(flat)%>
 </div>
 
