@@ -6,7 +6,11 @@
           <div class="col-xs-12 col-md-6">
             <ul>
               <li>Booked by: <%= booking.user.email %></li>
+              <% if booking.status == 'accepted' %>
+              <li>Status: <strong style="color: green;"><%= booking.status %></strong></li>
+              <% else %>
               <li>Status: <strong style="color: red;"><%= booking.status %></strong></li>
+              <% end %>
               <li>Booked at: <%= booking.created_at %></li>
               <li>Flat-id: <%= booking.flat.name %></li>
               <li>Flat-id: <%= booking.flat.location %></li>
