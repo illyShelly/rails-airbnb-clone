@@ -16,7 +16,7 @@ class DashboardController < ApplicationController
 
     # bookings related to my own flats
     @bookings_of_flat = []
-      # all flats -> others as well
+      # all flats -> others as well || or @my_flats.bookings...
       @my_flats.each do |flat|
         @bookings.each do |booking|
           # check once more booked flat has id as my flat

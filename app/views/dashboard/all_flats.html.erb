@@ -3,13 +3,13 @@
 <!-- 1. all my flats -> to edit, delete - if not booked ==>> see in separate profile -->
 <!-- 1b. get detail info -> when click on it ==> flat show page... edit etc. -->
 <!-- 2. all booked flats -> change status, see who booked, when, checkin/out -->
-  <h2>All my flats: <%= @my_flats.count %></h2>
+  <h2>All my flats - #<%= @my_flats.count %></h2>
 
-  <p class="text-center"> ALL bookings - including mine: <strong><%= @bookings.count %></strong> | bookings of mine: <strong><%= @bookings_of_flat.count %></strong> flats</p>
+  <p class="text-center"> ALL bookings - including mine: <strong><%= @bookings.count %></strong> | bookings of my flats: <strong><%= @bookings_of_flat.count %></strong></p>
 
   <div class="row">
     <% @my_flats.each do |flat| %>
-      <div class="col-xs-12 col-md-4">
+      <div class="col-xs-12 col-md-3">
         <!-- <li>My flat email: <%#= flat.user.email %></li> -->
         <!-- <li>My user id: <%#= flat.user.id %></li> -->
       <!-- display all FLATS on its CARD (even not booked) -> 1 row (above loop) -->
@@ -27,24 +27,34 @@
 
   <!-- INFO ABOUT BOOKED FLATS (repeated booking of 1 flat, or not all flats displayed) -->
   <!-- all booking details - flat ordered by check-in date FIFO -->
-  <h3>Management of all my booked flats</h3>
+  <h3 class="text-center">Management of all my booked flats</h3>
   <hr>
 
   <% @bookings_of_flat.each do |booked| %>
     <div class="row">
       <div class="col-xs-12 col-md-5 col-md-offset-1">
-         <img src="<%= booked.flat.photo%>" height=200 width=300>
+         <img src="<%= booked.flat.photo%>" height=200 width=250>
       </div>
 
-      <div class="col-xs-12 col-md-5">
+      <div class="col-xs-12 col-md-6">
         <li>Booked by: <%= booked.user.email%></li>
         <li>Flat id: <%= booked.flat_id %></li>
-        <li>Booking status: <strong><%= booked.status %></strong></li>
+        <li>Booking status: <strong><%= booked.status %></strong>
+          <%= link_to 'Accept', accept_flat_booking_path(booked.flat, booked),
+          method: :patch,
+          class: " btn btn-success" %>
+          <%= link_to 'Decline', decline_flat_booking_path(booked.flat, booked),
+          method: :patch,
+          class: " btn btn-danger" %>
+        </li>
         <li>Date: <%= booked.checkin %> : <%= booked.checkin %></li>
         <li><strong><%= booked.flat.address %></strong></li>
         <li><strong><%= booked.flat.location %></strong></li>
         <li><strong><%= booked.flat.price %>£</strong></li>
 
+        <!-- as default link_to is https GET request -> change to path -->
+        <!-- accept_flat_booking PATCH  /flats/:flat_id/bookings/:id/accept(.:format)      bookings#accept
+        decline_flat_booking -->
       </div>
     </div>
     <!-- every row is repeated -->

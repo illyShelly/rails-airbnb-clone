@@ -10,7 +10,13 @@ Rails.application.routes.draw do
   # resources :bookings, only: [:index ]
 
   resources :flats do
-    resources :bookings, only: [ :create ]
+    resources :bookings, only: [ :create ] do
+    # accept or decline in bookings controller
+      member do
+        patch 'accept', to: "bookings#accept"
+        patch 'decline', to: "bookings#decline"
+      end
+    end
   end
   # dashboard/bookings or dashboard/flats ..all_bookings for path in navbar "My Bookings"
   get '/dashboard/bookings', to: 'dashboard#all_bookings', as: 'all_bookings'
