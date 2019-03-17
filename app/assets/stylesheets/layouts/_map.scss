@@ -1,0 +1,8 @@
+#map {
+  filter: grayscale(100%);
+  transition: all .4s ease;
+}
+#map:hover {
+  filter: grayscale(0);
+  transition: all .4s ease;
+}

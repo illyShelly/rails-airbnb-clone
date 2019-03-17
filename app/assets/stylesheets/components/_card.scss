@@ -3,11 +3,13 @@
   margin: 40px 0;
 }
 .card-title {
-  opacity: 0.8;
+  // opacity: 0.8;
   color: black;
   padding-bottom: 20px;
 }
 .card {
+  filter: grayscale(100%) contrast(1.2);
+  // -webkit-filter: grayscale(100%);
   background-size: cover !important;
   background-position: center;
   height: 250px;
@@ -17,14 +19,16 @@
   text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
   /*on mobile -> needs space above each*/
   margin-bottom: 50px;
-  transition: .5s; /* smoothly move back when hover from the card */
+  transition: .4s; /* smoothly move back when hover from the card 500ms*/
   box-shadow: 2px 3px 5px rgb(68, 49, 49);
 }
 
 .card:hover {
-  opacity: 1.0;
-  transform: scale(1.05, 1.05);
-  transition: .5s; /* smoothly moved when hover on the card */
+  filter: grayscale(0);
+  // -webkit-filter: grayscale(0);
+  // opacity: 1.0;
+  transform: scale(1.03, 1.03);
+  transition: .4s; /* smoothly moved when hover on the card */
 }
 
 /*inner information*/
