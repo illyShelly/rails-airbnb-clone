@@ -33,7 +33,12 @@
   <% @bookings_of_flat.each do |booked| %>
     <div class="row">
       <div class="col-xs-12 col-md-5 col-md-offset-1">
-         <img src="<%= booked.flat.photo%>" height=200 width=250>
+        <img src="<%= booked.flat.photo%>" height=200 width=250>
+
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url('<%= booked.flat.photo %>')">
+          <%= link_to "", flat_path(booked.flat), class: 'card-link' %>
+        </div>
       </div>
 
       <div class="col-xs-12 col-md-6">
